@@ -80,7 +80,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('errors if the parameters are not numbers', (done) => {
+    it('errors if the parameters are not numbers', (done) => {
       chai.request(server)
         .get('/numbers/subtract/fish/from/chips')
         .end((err, res) => {
@@ -95,7 +95,7 @@ describe('/numbers', () => {
   });
 
   describe('POST /multiply', () => {
-    xit('multiplies two numbers', (done) => {
+    it('multiplies two numbers', (done) => {
       chai.request(server)
         .post('/numbers/multiply')
         .send({
@@ -112,7 +112,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('multiplies stringified numbers', (done) => {
+    it('multiplies stringified numbers', (done) => {
       chai.request(server)
         .post('/numbers/multiply')
         .send({
@@ -129,7 +129,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('errors if a parameter is missing', (done) => {
+    it('errors if a parameter is missing', (done) => {
       chai.request(server)
         .post('/numbers/multiply')
         .send({
@@ -145,7 +145,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('errors if the parameters are not numbers', (done) => {
+    it('errors if the parameters are not numbers', (done) => {
       chai.request(server)
         .post('/numbers/multiply')
         .send({
