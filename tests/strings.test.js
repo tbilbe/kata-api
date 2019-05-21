@@ -59,7 +59,7 @@ describe('/strings', () => {
         });
     });
 
-    it('returns the first n character of the string when passed a query parameter', (
+    xit('returns the first n character of the string when passed a query parameter', (
       done) => {
       chai.request(server)
         .get('/strings/first-characters/sd32fg45')

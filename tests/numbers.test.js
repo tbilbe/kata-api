@@ -1,69 +1,81 @@
 describe('/numbers', () => {
   describe('GET /add/{number}/and/{number}', () => {
-    xit('adds 2 and 1', (done) => {
+    it('adds 2 and 1', (done) => {
       chai.request(server)
         .get('/numbers/add/2/and/1')
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: 3 });
+          expect(res.body).to.eql({
+            result: 3
+          });
           done();
         });
     });
 
-    xit('adds 12 and 0', (done) => {
+    it('adds 12 and 0', (done) => {
       chai.request(server)
         .get('/numbers/add/12/and/0')
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: 12 });
+          expect(res.body).to.eql({
+            result: 12
+          });
           done();
         });
     });
 
-    xit('adds 10 and -5', (done) => {
+    it('adds 10 and -5', (done) => {
       chai.request(server)
         .get('/numbers/add/10/and/-5')
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: 5 });
+          expect(res.body).to.eql({
+            result: 5
+          });
           done();
         });
     });
 
-    xit('errors if the parameters are not numbers', (done) => {
+    it('errors if the parameters are not numbers', (done) => {
       chai.request(server)
         .get('/numbers/add/fish/and/chips')
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(400);
-          expect(res.body).to.eql({ error: 'Parameters must be valid numbers.' });
+          expect(res.body).to.eql({
+            error: 'Parameters must be valid numbers.'
+          });
           done();
         });
     });
   });
 
   describe('GET /subtract/{number}/from/{number}', () => {
-    xit('subtracts 2 from 1', (done) => {
+    it('subtracts 2 from 1', (done) => {
       chai.request(server)
         .get('/numbers/subtract/2/from/1')
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: -1 });
+          expect(res.body).to.eql({
+            result: -1
+          });
           done();
         });
     });
 
-    xit('subtracts -2 from 1', (done) => {
+    it('subtracts -2 from 1', (done) => {
       chai.request(server)
         .get('/numbers/subtract/-2/from/1')
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: 3 });
+          expect(res.body).to.eql({
+            result: 3
+          });
           done();
         });
     });
@@ -74,7 +86,9 @@ describe('/numbers', () => {
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(400);
-          expect(res.body).to.eql({ error: 'Parameters must be valid numbers.' });
+          expect(res.body).to.eql({
+            error: 'Parameters must be valid numbers.'
+          });
           done();
         });
     });
@@ -84,11 +98,16 @@ describe('/numbers', () => {
     xit('multiplies two numbers', (done) => {
       chai.request(server)
         .post('/numbers/multiply')
-        .send({ a: 10, b: 3 })
+        .send({
+          a: 10,
+          b: 3
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: 30 });
+          expect(res.body).to.eql({
+            result: 30
+          });
           done();
         });
     });
@@ -96,11 +115,16 @@ describe('/numbers', () => {
     xit('multiplies stringified numbers', (done) => {
       chai.request(server)
         .post('/numbers/multiply')
-        .send({ a: '-4', b: '-9' })
+        .send({
+          a: '-4',
+          b: '-9'
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: 36 });
+          expect(res.body).to.eql({
+            result: 36
+          });
           done();
         });
     });
@@ -108,11 +132,15 @@ describe('/numbers', () => {
     xit('errors if a parameter is missing', (done) => {
       chai.request(server)
         .post('/numbers/multiply')
-        .send({ a: 'fish' })
+        .send({
+          a: 'fish'
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(400);
-          expect(res.body).to.eql({ error: 'Parameters "a" and "b" are required.' });
+          expect(res.body).to.eql({
+            error: 'Parameters "a" and "b" are required.'
+          });
           done();
         });
     });
@@ -120,11 +148,16 @@ describe('/numbers', () => {
     xit('errors if the parameters are not numbers', (done) => {
       chai.request(server)
         .post('/numbers/multiply')
-        .send({ a: 'fish', b: 'chips' })
+        .send({
+          a: 'fish',
+          b: 'chips'
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(400);
-          expect(res.body).to.eql({ error: 'Parameters "a" and "b" must be valid numbers.' });
+          expect(res.body).to.eql({
+            error: 'Parameters "a" and "b" must be valid numbers.'
+          });
           done();
         });
     });
@@ -134,11 +167,16 @@ describe('/numbers', () => {
     xit('divides two numbers', (done) => {
       chai.request(server)
         .post('/numbers/divide')
-        .send({ a: 162, b: 3 })
+        .send({
+          a: 162,
+          b: 3
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: 54 });
+          expect(res.body).to.eql({
+            result: 54
+          });
           done();
         });
     });
@@ -146,11 +184,16 @@ describe('/numbers', () => {
     xit('divides stringified numbers', (done) => {
       chai.request(server)
         .post('/numbers/divide')
-        .send({ a: '-4', b: '8' })
+        .send({
+          a: '-4',
+          b: '8'
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: -0.5 });
+          expect(res.body).to.eql({
+            result: -0.5
+          });
           done();
         });
     });
@@ -158,11 +201,16 @@ describe('/numbers', () => {
     xit('divides 0 by a number', (done) => {
       chai.request(server)
         .post('/numbers/divide')
-        .send({ a: 0, b: 10 })
+        .send({
+          a: 0,
+          b: 10
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: 0 });
+          expect(res.body).to.eql({
+            result: 0
+          });
           done();
         });
     });
@@ -170,11 +218,16 @@ describe('/numbers', () => {
     xit('errors if dividing by 0', (done) => {
       chai.request(server)
         .post('/numbers/divide')
-        .send({ a: 10, b: 0 })
+        .send({
+          a: 10,
+          b: 0
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(400);
-          expect(res.body).to.eql({ error: 'Unable to divide by 0.' });
+          expect(res.body).to.eql({
+            error: 'Unable to divide by 0.'
+          });
           done();
         });
     });
@@ -182,11 +235,15 @@ describe('/numbers', () => {
     xit('errors if a parameter is missing', (done) => {
       chai.request(server)
         .post('/numbers/divide')
-        .send({ a: 'fish' })
+        .send({
+          a: 'fish'
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(400);
-          expect(res.body).to.eql({ error: 'Parameters "a" and "b" are required.' });
+          expect(res.body).to.eql({
+            error: 'Parameters "a" and "b" are required.'
+          });
           done();
         });
     });
@@ -194,11 +251,16 @@ describe('/numbers', () => {
     xit('errors if the parameters are not numbers', (done) => {
       chai.request(server)
         .post('/numbers/divide')
-        .send({ a: 'fish', b: 'chips' })
+        .send({
+          a: 'fish',
+          b: 'chips'
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(400);
-          expect(res.body).to.eql({ error: 'Parameters "a" and "b" must be valid numbers.' });
+          expect(res.body).to.eql({
+            error: 'Parameters "a" and "b" must be valid numbers.'
+          });
           done();
         });
     });
@@ -208,11 +270,16 @@ describe('/numbers', () => {
     xit('gives the remainder of dividing 18 by 5', (done) => {
       chai.request(server)
         .post('/numbers/remainder')
-        .query({ a: 18, b: 5 })
+        .query({
+          a: 18,
+          b: 5
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: 3 });
+          expect(res.body).to.eql({
+            result: 3
+          });
           done();
         });
     });
@@ -220,11 +287,16 @@ describe('/numbers', () => {
     xit('gives the remainder of dividing -4 by 8', (done) => {
       chai.request(server)
         .post('/numbers/remainder')
-        .send({ a: '-4', b: '8' })
+        .send({
+          a: '-4',
+          b: '8'
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: -4 });
+          expect(res.body).to.eql({
+            result: -4
+          });
           done();
         });
     });
@@ -232,11 +304,16 @@ describe('/numbers', () => {
     xit('gives the remainder of dividing 0 by a number', (done) => {
       chai.request(server)
         .post('/numbers/remainer')
-        .send({ a: 0, b: 10 })
+        .send({
+          a: 0,
+          b: 10
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: 0 });
+          expect(res.body).to.eql({
+            result: 0
+          });
           done();
         });
     });
@@ -244,11 +321,16 @@ describe('/numbers', () => {
     xit('errors if dividing by 0', (done) => {
       chai.request(server)
         .post('/numbers/remainder')
-        .send({ a: 10, b: 0 })
+        .send({
+          a: 10,
+          b: 0
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(400);
-          expect(res.body).to.eql({ error: 'Unable to divide by 0.' });
+          expect(res.body).to.eql({
+            error: 'Unable to divide by 0.'
+          });
           done();
         });
     });
@@ -256,11 +338,15 @@ describe('/numbers', () => {
     xit('errors if a parameter is missing', (done) => {
       chai.request(server)
         .post('/numbers/remainder')
-        .send({ a: 'fish' })
+        .send({
+          a: 'fish'
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(400);
-          expect(res.body).to.eql({ error: 'Parameters "a" and "b" are required.' });
+          expect(res.body).to.eql({
+            error: 'Parameters "a" and "b" are required.'
+          });
           done();
         });
     });
@@ -268,11 +354,16 @@ describe('/numbers', () => {
     xit('errors if the parameters are not numbers', (done) => {
       chai.request(server)
         .post('/numbers/remainder')
-        .send({ a: 'fish', b: 'chips' })
+        .send({
+          a: 'fish',
+          b: 'chips'
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(400);
-          expect(res.body).to.eql({ error: 'Parameters must be valid numbers.' });
+          expect(res.body).to.eql({
+            error: 'Parameters must be valid numbers.'
+          });
           done();
         });
     });
