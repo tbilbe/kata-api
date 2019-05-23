@@ -164,7 +164,7 @@ describe('/numbers', () => {
   });
 
   describe('POST /divide', () => {
-    xit('divides two numbers', (done) => {
+    it('divides two numbers', (done) => {
       chai.request(server)
         .post('/numbers/divide')
         .send({
@@ -181,7 +181,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('divides stringified numbers', (done) => {
+    it('divides stringified numbers', (done) => {
       chai.request(server)
         .post('/numbers/divide')
         .send({
@@ -198,7 +198,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('divides 0 by a number', (done) => {
+    it('divides 0 by a number', (done) => {
       chai.request(server)
         .post('/numbers/divide')
         .send({
@@ -215,7 +215,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('errors if dividing by 0', (done) => {
+    it('errors if dividing by 0', (done) => {
       chai.request(server)
         .post('/numbers/divide')
         .send({
@@ -232,7 +232,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('errors if a parameter is missing', (done) => {
+    it('errors if a parameter is missing', (done) => {
       chai.request(server)
         .post('/numbers/divide')
         .send({
@@ -248,7 +248,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('errors if the parameters are not numbers', (done) => {
+    it('errors if the parameters are not numbers', (done) => {
       chai.request(server)
         .post('/numbers/divide')
         .send({

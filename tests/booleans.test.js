@@ -3,11 +3,15 @@ describe('/booleans', () => {
     xit('returns false when passed true', (done) => {
       chai.request(server)
         .post('/booleans/negate')
-        .send({ value: true })
+        .send({
+          value: true
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: false });
+          expect(res.body).to.eql({
+            result: false
+          });
           done();
         });
     });
@@ -15,11 +19,15 @@ describe('/booleans', () => {
     xit('returns true when passed false', (done) => {
       chai.request(server)
         .post('/booleans/negate')
-        .send({ value: false })
+        .send({
+          value: false
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: true });
+          expect(res.body).to.eql({
+            result: true
+          });
           done();
         });
     });
@@ -29,11 +37,15 @@ describe('/booleans', () => {
     xit('returns false when passed an empty string', (done) => {
       chai.request(server)
         .post('/booleans/truthiness')
-        .send({ value: '' })
+        .send({
+          value: ''
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: false });
+          expect(res.body).to.eql({
+            result: false
+          });
           done();
         });
     });
@@ -41,11 +53,15 @@ describe('/booleans', () => {
     xit('returns false when passed 0', (done) => {
       chai.request(server)
         .post('/booleans/truthiness')
-        .send({ value: 0 })
+        .send({
+          value: 0
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: false });
+          expect(res.body).to.eql({
+            result: false
+          });
           done();
         });
     });
@@ -53,11 +69,15 @@ describe('/booleans', () => {
     xit('returns false when passed null', (done) => {
       chai.request(server)
         .post('/booleans/truthiness')
-        .send({ value: null })
+        .send({
+          value: null
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: false });
+          expect(res.body).to.eql({
+            result: false
+          });
           done();
         });
     });
@@ -65,11 +85,15 @@ describe('/booleans', () => {
     xit('returns true when passed a string', (done) => {
       chai.request(server)
         .post('/booleans/truthiness')
-        .send({ value: 'hello' })
+        .send({
+          value: 'hello'
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: true });
+          expect(res.body).to.eql({
+            result: true
+          });
           done();
         });
     });
@@ -77,11 +101,15 @@ describe('/booleans', () => {
     xit('returns true when passed a number', (done) => {
       chai.request(server)
         .post('/booleans/truthiness')
-        .send({ value: 9 })
+        .send({
+          value: 9
+        })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: true });
+          expect(res.body).to.eql({
+            result: true
+          });
           done();
         });
     });
@@ -94,7 +122,9 @@ describe('/booleans', () => {
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: true });
+          expect(res.body).to.eql({
+            result: true
+          });
           done();
         });
     });
@@ -105,7 +135,9 @@ describe('/booleans', () => {
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: false });
+          expect(res.body).to.eql({
+            result: false
+          });
           done();
         });
     });
@@ -116,7 +148,9 @@ describe('/booleans', () => {
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(400);
-          expect(res.body).to.eql({ error: 'Parameter must be a number.' });
+          expect(res.body).to.eql({
+            error: 'Parameter must be a number.'
+          });
           done();
         });
     });
@@ -129,7 +163,9 @@ describe('/booleans', () => {
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: true });
+          expect(res.body).to.eql({
+            result: true
+          });
           done();
         });
     });
@@ -140,7 +176,9 @@ describe('/booleans', () => {
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
-          expect(res.body).to.eql({ result: false });
+          expect(res.body).to.eql({
+            result: false
+          });
           done();
         });
     });
@@ -151,7 +189,9 @@ describe('/booleans', () => {
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(400);
-          expect(res.body).to.eql({ error: 'Parameter "character" must be a single character.' });
+          expect(res.body).to.eql({
+            error: 'Parameter "character" must be a single character.'
+          });
           done();
         });
     });

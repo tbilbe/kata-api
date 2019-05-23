@@ -1,19 +1,9 @@
 const express = require('express');
 
 const router = express.Router();
-const {
-  sayHello,
-  uppercase,
-  lowercase,
-  firstCharacter,
-  firstCharacters,
-} = require('../lib/strings');
+const stringsController = require('../controllers/strings.js');
 
-router.get('/hello/:string', (req, res) => {
-  res.status(200).json({
-    result: 'Hello world!',
-  });
-});
+router.get('/hello/:string', stringsController.hello);
 
 router.get('/hello/:string', (req, res) => {
   res.status(200).json({
@@ -21,30 +11,14 @@ router.get('/hello/:string', (req, res) => {
   });
 });
 
-router.get('/upper/:string', (req, res) => {
-  res.status(200).json({
-    result: uppercase(req.params.string),
-  });
-});
+router.get('/upper/:string', stringsController.upper);
 
-router.get('/lower/:string', (req, res) => {
-  res.status(200).json({
-    result: lowercase(req.params.string),
-  });
-});
+router.get('/lower/:string', stringsController.lower);
 // Strings 5 endpoint
 
-router.get('/first-characters/:string', (req, res) => {
-  res.status(200).json({
-    result: firstCharacter(req.params.string),
-  });
-});
+router.get('/first-characters/:string', stringsController.firstChars);
 
 // Strings 5a endpoint
-router.get('/first-characters/:string', (req, res) => {
-  res.status(200).json({
-    result: firstCharacters(req.params.string, req.query.length),
-  });
-});
+router.get('/first-characters/:string', stringsController.firstChars1);
 
 module.exports = router;
