@@ -16,4 +16,7 @@ router.post('/multiply', numbersController.multiply);
 // Number 4 endpoint
 router.post('/divide', numbersController.divide);
 
+// Number 5 endpoint
+router.post('/remainder/', numbersController.remainder);
+
 module.exports = router;

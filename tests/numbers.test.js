@@ -267,7 +267,7 @@ describe('/numbers', () => {
   });
 
   describe('GET /remainder?a={number}&b={number}', () => {
-    xit('gives the remainder of dividing 18 by 5', (done) => {
+    it('gives the remainder of dividing 18 by 5', (done) => {
       chai.request(server)
         .post('/numbers/remainder')
         .query({
@@ -284,7 +284,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('gives the remainder of dividing -4 by 8', (done) => {
+    it('gives the remainder of dividing -4 by 8', (done) => {
       chai.request(server)
         .post('/numbers/remainder')
         .send({
@@ -301,7 +301,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('gives the remainder of dividing 0 by a number', (done) => {
+    it('gives the remainder of dividing 0 by a number', (done) => {
       chai.request(server)
         .post('/numbers/remainer')
         .send({
@@ -318,7 +318,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('errors if dividing by 0', (done) => {
+    it('errors if dividing by 0', (done) => {
       chai.request(server)
         .post('/numbers/remainder')
         .send({
@@ -335,7 +335,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('errors if a parameter is missing', (done) => {
+    it('errors if a parameter is missing', (done) => {
       chai.request(server)
         .post('/numbers/remainder')
         .send({
@@ -351,7 +351,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('errors if the parameters are not numbers', (done) => {
+    it('errors if the parameters are not numbers', (done) => {
       chai.request(server)
         .post('/numbers/remainder')
         .send({

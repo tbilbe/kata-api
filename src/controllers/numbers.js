@@ -80,3 +80,37 @@ exports.divide = (req, res) => {
     });
   }
 };
+
+exports.remainder = (req, res) => {
+  if (req.query.a && req.query.b) {
+    const {
+      a,
+      b,
+    } = req.query;
+    res.status(200).json({
+      result: remainder(a, b)
+    });
+  } else {
+    const {
+      a,
+      b,
+    } = req.body;
+    if (a === undefined || b === undefined) {
+      res.status(400).json({
+        error: 'Parameters \"a\" and \"b\" are required.',
+      });
+    } else if (Number.isNaN(parseInt(a, 10)) && Number.isNaN(parseInt(b, 10))) {
+      res.status(400).json({
+        error: 'Parameters must be valid numbers.',
+      });
+    } else if (b === 0) {
+      res.status(400).json({
+        error: 'Unable to divide by 0.',
+      });
+    } else {
+      res.status(200).json({
+        result: remainder(a, b),
+      });
+    }
+  }
+};
