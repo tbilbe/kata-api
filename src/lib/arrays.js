@@ -4,10 +4,8 @@ const arrayToCSVString = (array) => array.join(',');
 
 const csvStringToArray = (string) => string.split(',');
 
-const addToArray = (element, array) => {
-  array.push(element);
-  return;
-}
+const addToArray = (element, array) => array.push(element);
+
 const addToArray2 = (element, array) => {
   const newArray = [];
   array.map((oldArrayIndex) => newArray.push(oldArrayIndex));
@@ -26,7 +24,7 @@ const reverseWordsInArray = (strings) => strings.map(el => el.split('').reverse(
 const onlyEven = (numbers) => numbers.filter(nums => nums % 2 == 0);
 
 const removeNthElement2 = (index, array) => {
-  const newArray = []
+  const newArray = [];
   for (let i = 0; i < array.length; i++) {
     if (i != index) {
       newArray.push(array[i]);
@@ -36,13 +34,17 @@ const removeNthElement2 = (index, array) => {
 };
 
 const elementsStartingWithAVowel = (strings) => {
-  const filterStrings = strings.split(' ').filter(letter => letter[0].toUpperCase() == 'A' || letter[0].toUpperCase() == 'E' || letter[0].toUpperCase() == 'I' || letter[0].toUpperCase() == 'O' || letter[0].toUpperCase() == 'U')
+  const filterStrings = strings.split(' ').filter(letter => letter[0].toUpperCase() == 'A' ||
+    letter[0].toUpperCase() == 'E' || letter[0].toUpperCase() == 'I' || letter[0]
+    .toUpperCase() == 'O' || letter[0].toUpperCase() == 'U')
   return filterStrings;
 };
 
 const removeSpaces = (string) => string.split(' ').join('');
 
-const sumNumbers = (numbers) => numbers.reduce((acc, next) => { return acc += next }, 0);
+const sumNumbers = (numbers) => numbers.reduce((acc, next) => {
+  return acc += next
+}, 0);
 
 const sortByLastLetter = (strings) => {
   const first = strings.map(word => word.split(' '))

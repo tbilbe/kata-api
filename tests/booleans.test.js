@@ -1,6 +1,6 @@
 describe('/booleans', () => {
   describe('POST /negate', () => {
-    xit('returns false when passed true', (done) => {
+    it('returns false when passed true', (done) => {
       chai.request(server)
         .post('/booleans/negate')
         .send({
@@ -16,7 +16,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns true when passed false', (done) => {
+    it('returns true when passed false', (done) => {
       chai.request(server)
         .post('/booleans/negate')
         .send({
@@ -34,7 +34,7 @@ describe('/booleans', () => {
   });
 
   describe('POST /truthiness', () => {
-    xit('returns false when passed an empty string', (done) => {
+    it('returns false when passed an empty string', (done) => {
       chai.request(server)
         .post('/booleans/truthiness')
         .send({
@@ -50,7 +50,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns false when passed 0', (done) => {
+    it('returns false when passed 0', (done) => {
       chai.request(server)
         .post('/booleans/truthiness')
         .send({
@@ -66,7 +66,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns false when passed null', (done) => {
+    it('returns false when passed null', (done) => {
       chai.request(server)
         .post('/booleans/truthiness')
         .send({
@@ -82,7 +82,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns true when passed a string', (done) => {
+    it('returns true when passed a string', (done) => {
       chai.request(server)
         .post('/booleans/truthiness')
         .send({
@@ -98,7 +98,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns true when passed a number', (done) => {
+    it('returns true when passed a number', (done) => {
       chai.request(server)
         .post('/booleans/truthiness')
         .send({
@@ -116,7 +116,7 @@ describe('/booleans', () => {
   });
 
   describe('GET /is-odd/{number}', () => {
-    xit('returns true when passed an odd number', (done) => {
+    it('returns true when passed an odd number', (done) => {
       chai.request(server)
         .get('/booleans/is-odd/7')
         .end((err, res) => {
@@ -129,7 +129,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns false when passed an even number', (done) => {
+    it('returns false when passed an even number', (done) => {
       chai.request(server)
         .get('/booleans/is-odd/84')
         .end((err, res) => {
@@ -142,7 +142,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('errors when the value is not numeric', (done) => {
+    it('errors when the value is not numeric', (done) => {
       chai.request(server)
         .get('/booleans/is-odd/bicycle')
         .end((err, res) => {
@@ -157,7 +157,7 @@ describe('/booleans', () => {
   });
 
   describe('GET /{string}/starts-with/{character}', () => {
-    xit('returns true when the string starts with the given character', (done) => {
+    it('returns true when the string starts with the given character', (done) => {
       chai.request(server)
         .get('/booleans/cat/starts-with/c')
         .end((err, res) => {
@@ -170,7 +170,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns false when the string does not start with the given character', (done) => {
+    it('returns false when the string does not start with the given character', (done) => {
       chai.request(server)
         .get('/booleans/cat/starts-with/d')
         .end((err, res) => {
@@ -183,7 +183,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('errors when the second argument is not a single character', (done) => {
+    it('errors when the second argument is not a single character', (done) => {
       chai.request(server)
         .get('/booleans/cat/starts-with/cat')
         .end((err, res) => {

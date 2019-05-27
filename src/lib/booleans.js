@@ -40,7 +40,7 @@ const isSquare = (a) => {
     if (total === a) {
       return true;
     }
-  } while (total < a) 
+  } while (total < a)
   return false;
 };
 
@@ -68,7 +68,6 @@ const isLowerCase = (string) => {
   return true;
 };
 
-//isLowerCase('Abc')
 module.exports = {
   negate,
   both,
